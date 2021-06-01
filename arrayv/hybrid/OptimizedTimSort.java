@@ -8,6 +8,8 @@ final public class OptimizedTimSort extends Sort {
     static final int MIN_MERGE = 32;
     static final int MIN_GALLOP = 7;
 
+    static final int MASK_SHIFT = 31;
+
     public OptimizedTimSort(ArrayVisualizer arrayVisualizer) {
         super(arrayVisualizer);
         
@@ -24,7 +26,7 @@ final public class OptimizedTimSort extends Sort {
     }
 
     protected static int abs(int a) {
-        int mask = a >> 31;
+        int mask = a >> MASK_SHIFT;
         return (mask + a) ^ mask;
     }
 
